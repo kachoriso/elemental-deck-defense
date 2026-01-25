@@ -1,0 +1,26 @@
+{
+  "name": "elemental-deck-defense",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kachoriso/elemental-deck-defense.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kachoriso/elemental-deck-defense/issues"
+  },
+  "homepage": "https://github.com/kachoriso/elemental-deck-defense#readme",
+  "description": "Deck-building Roguelite Tower Defense Game",
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  }
+}

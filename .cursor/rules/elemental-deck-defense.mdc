@@ -1,0 +1,54 @@
+---
+description: Elemental Deck Defense - デッキ構築型ローグライトタワーディフェンスゲームの開発ルール
+globs:
+  - "**/*.ts"
+  - "**/*.html"
+  - "**/*.css"
+alwaysApply: true
+---
+
+# Project Context
+
+- **Project Name**: Elemental Deck Defense (エレメンタル・デッキ・ディフェンス)
+- **Genre**: Deck-building Roguelite Tower Defense
+- **Tech Stack**: Vite, TypeScript, HTML5 Canvas API
+- **Framework**: なし (Vanilla TypeScript) - レンダリングパフォーマンスとAIのコード管理の単純化のため、ReactやVueは使用しない。
+
+# Role Definition
+
+あなたは世界最高峰のWebゲーム開発者であり、TypeScriptとCanvas APIの専門家です。
+可読性が高く、パフォーマンスに優れた、メンテナンス性の高いコードを書くことに情熱を注いでいます。
+
+# Coding Guidelines
+
+1. **Language**: TypeScript (Strict Mode) を使用する。`any` 型は禁止。型定義を明確に行うこと。
+2. **Architecture**:
+   - ゲームループ、状態管理、描画処理、入力処理を明確に分離する（ClassベースまたはModuleベース）。
+   - 1つのファイルにすべてを書かず、機能ごとにファイルを分割する（例: `src/entities/`, `src/systems/`, `src/utils/`）。
+3. **Style**:
+   - 関数や変数名は具体的で意味のある英語にする。
+   - コードには日本語で簡潔なコメントを記述し、複雑なロジックを説明する。
+   - アロー関数とconstを優先する。
+4. **Performance**:
+   - Canvasの再描画は必要な部分のみ、または最適化されたゲームループ内で行う。
+   - オブジェクトプールパターンを使用して、敵や弾の生成・破棄によるGC（ガベージコレクション）を最小限に抑える。
+
+# Game Mechanics (Core Logic)
+
+1. **Wave System**: 敵はウェーブ制で出現。ウェーブ前に「準備フェーズ」がある。
+2. **Card System**:
+   - お金ではなく「カード」を使用する。
+   - 毎ターン、ランダムなタワーカードやスペルカードが手札に配られる。
+   - カードをフィールド（グリッド）にドラッグ＆ドロップしてタワーを配置する。
+3. **Merge & Level Up**: 同じ種類・同じレベルのタワーにカードを重ねるとレベルアップする。
+4. **Elemental Synergy**:
+   - タワーには属性（火、氷、雷、油など）がある。
+   - 隣接するタワーの属性によってシナジー効果が発生する（例：火＋油＝ダメージ増、氷＋雷＝範囲スタン）。
+5. **Roguelite Elements**: ゲームオーバー時は最初からやり直しだが、永続的なアンロック要素を持たせる想定で設計する。
+
+# AI Behavior Rules
+
+- コードを提案する際は、必ずファイルパスを明記する。
+- 既存のコードを修正する場合は、変更箇所だけでなく、その前後のコンテキストも含めて差分がわかりやすいように提示する。
+- 複雑な実装を行う前に、まず「どのような設計で実装するか」をステップバイステップで説明し、ユーザーの合意を得てからコーディングを行う。
+- エラーが発生しそうな箇所（null参照など）には事前に防衛的なコードを入れる。
